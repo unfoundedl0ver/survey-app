@@ -12,7 +12,7 @@
 const { configure } = require('quasar/wrappers');
 
 
-module.exports = configure(function (/* ctx */) {
+module.exports = configure(function ( ctx ) {
   return {
     eslint: {
       // fix: true,
@@ -61,6 +61,14 @@ module.exports = configure(function (/* ctx */) {
       },
 
       vueRouterMode: 'hash', // available values: 'hash', 'history'
+      env: {
+        BASE_URL: ctx.dev ? 'http://localhost:3000' : 'http://44.202.238.24',
+        CREATOR_NAME: 'Tanasia Miles',
+        CREATOR_EMAIL: 'Skyiskind@gmail.com',
+        LINKEDIN: 'https://www.linkedin.com/in/tanasiamiles/'
+      },
+      distDir: '../server/public'
+ 
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
@@ -86,6 +94,11 @@ module.exports = configure(function (/* ctx */) {
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#devServer
+    htmlVariables: {
+      productName: 'BAHS Student Job Survey App',
+      productDescription: 'The Bronx Aerospace High School Student Survey App collects job preferences from high school students.'
+    },
+ 
     devServer: {
       // https: true
       open: true // opens browser window automatically
@@ -106,7 +119,9 @@ module.exports = configure(function (/* ctx */) {
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: [
+        'Notify'
+      ]
     },
 
     // animations: 'all', // --- includes all animations
@@ -126,7 +141,11 @@ module.exports = configure(function (/* ctx */) {
     // },
 
     // https://v2.quasar.dev/quasar-cli-vite/developing-ssr/configuring-ssr
-    ssr: {
+    ssr: {   htmlVariables: {
+      productName: 'BAHS Student Job Survey App',
+      productDescription: 'The Bronx Aerospace High School Student Survey App collects job preferences from high school students.'
+    },
+ 
       // ssrPwaHtmlFilename: 'offline.html', // do NOT use index.html as name!
                                           // will mess up SSR
 
@@ -163,7 +182,11 @@ module.exports = configure(function (/* ctx */) {
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/developing-cordova-apps/configuring-cordova
     cordova: {
       // noIosLegacyBuildFlag: true, // uncomment only if you know what you are doing
+    },   htmlVariables: {
+      productName: 'BAHS Student Job Survey App',
+      productDescription: 'The Bronx Aerospace High School Student Survey App collects job preferences from high school students.'
     },
+ 
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/developing-capacitor-apps/configuring-capacitor
     capacitor: {
