@@ -60,7 +60,7 @@ module.exports = configure(function ( ctx ) {
         node: 'node20'
       },
 
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history'
       env: {
         SERVER_URL: ctx.dev ? 'http://localhost:3000' : 'http://184.73.0.168',
         CREATOR_NAME: 'Tanasia Miles',
